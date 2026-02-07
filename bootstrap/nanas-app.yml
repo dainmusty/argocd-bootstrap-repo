@@ -9,6 +9,13 @@ spec:
     repoURL: https://github.com/dainmusty/minikube-project.git
     targetRevision: main
     path: argocd/apps/workloads
+    directory:
+      recurse: true
   destination:
     server: https://kubernetes.default.svc
     namespace: argocd
+
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
