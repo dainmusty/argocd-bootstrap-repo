@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: minikube-apps
+  name: ayd-app
   namespace: argocd
 spec:
   project: default
