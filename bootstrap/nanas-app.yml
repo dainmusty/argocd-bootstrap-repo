@@ -14,7 +14,6 @@ spec:
   destination:
     server: https://kubernetes.default.svc
     namespace: payment-app
-
   syncPolicy:
     automated:
       prune: true
