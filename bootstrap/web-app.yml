@@ -1,19 +1,19 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: nanas-app
+  name: webapp
   namespace: argocd
 spec:
   project: default
   source:
     repoURL: https://github.com/dainmusty/minikube-project.git
     targetRevision: main
-    path: argocd/apps/workloads/payment-app
+    path: argocd/apps/workloads/web-app
     directory:
       recurse: true
   destination:
     server: https://kubernetes.default.svc
-    namespace: payment-app
+    namespace: web-app
 
   syncPolicy:
     automated:
