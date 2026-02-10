@@ -1,21 +1,23 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: monitoring
+  name: root-app
   namespace: argocd
 spec:
   project: default
+
   source:
-    repoURL: https://github.com/dainmusty/minikube-project.git
+    repoURL: https://github.com/dainmusty/argocd-bootstrap-repo.git
     targetRevision: main
-    path: argocd/apps/workloads/monitoring
-    
+    path: child-apps
+    directory:
+      recurse: true
+
   destination:
     server: https://kubernetes.default.svc
-    namespace: monitoring
+    namespace: argocd
+
   syncPolicy:
     automated:
       prune: true
       selfHeal: true
-    syncOptions:
-      - CreateNamespace=true  
